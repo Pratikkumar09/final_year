@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Services</title>
+    <style>
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: #333;
+            /* padding: 10px 0; */
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- navbar starts here -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!--        <a class="navbar-brand" href="http://127.0.0.1:5501/index.html">-->
+<!--                       <img src="./logo5.jpg" alt="logo" width="120px" height="60px" style="border-radius: 5%;">-->
+<!--        </a>-->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:5501/index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Services
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item"
+                            href="https://public.tableau.com/app/profile/bidisha.paul8561/viz/Reasonsfordropout/Dashboard1?publish=yes">Dashboard</a>
+                        <a class="dropdown-item" href="anurag.html">Dropout Prediction</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="govt_policies.html">Government Policies</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"
+                        href="https://public.tableau.com/app/profile/bidisha.paul8561/viz/Totalpercentageofstudentswhodroppedoutfordifferentreasons/Sheet2?publish=yes">Dashboard</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li> -->
+            </ul>
+            <!-- <form class="form-inline my-2 my-lg-0"> -->
+            <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+            <a href="login.html">
+                <button class="btn btn-outline-success my-2 my-sm-0 mx-3" type="submit">Login</button>
+            </a>
+            <!-- <button class="btn btn-outline-success my-2 my-sm-0 mx-3" type="submit">Login</button> -->
+            <!-- </form> -->
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <!-- navbar ends here -->
+
+    <!-- contact starts here -->
+    <section class="contact py-5 my-5" id="contact">
+        <div class="container bg-dark" style="color: azure;">
+            <div class="row">
+                <div class="col-md-8 col-10 mx-auto mb-3 my-5 py-5 border shadow">
+                    <h3 class="text-center mb-3">Predict your chance to dropout</h3>
+                     <form action="/predict" method="POST" id="form">
+<!--                        <form  id="form">-->
+
+                        <!--                        <div class="row px-3">-->
+                        <!--&lt;!&ndash;                            <form action="form.php">&ndash;&gt;-->
+                        <!--                                Select the level of Standard-->
+                        <!--                                <select name="Standard" id="Standard" style="margin-left: 10px;">-->
+                        <!--                                    <option value="Primary">Primary</option>-->
+                        <!--                                    &lt;!&ndash; <option value="Primary"></option> &ndash;&gt;-->
+                        <!--                                    <option value="Secondary">Secondary</option>-->
+                        <!--                                    <option value=" Senior Secondary">Senior Seconadry</option>-->
+                        <!--                                </select>-->
+                        <!--&lt;!&ndash;                            </form>&ndash;&gt;-->
+                        <!--                        </div>-->
+
+                        <div class="form-group">
+                            <label>Age </label>
+                            <input name="age" id="age" type="text" placeholder="age" class="form-control"
+                                style="margin-bottom: 20px;">
+
+                            Class you are in
+                            <select name="Standard" id="Standard">
+                                <option value="1">Class 1</option>
+                                <option value="2">Class 2</option>
+                                <option value="3">Class 3</option>
+                                <option value="4">Class 4</option>
+                                <option value="5">Class 5</option>
+                                <option value="6">Class 6</option>
+                                <option value="7">Class 7</option>
+                                <option value="8">Class 8</option>
+                                <option value="9">Class 9</option>
+                                <option value="10">Class 10</option>
+                                <option value="11">Class 11</option>
+                                <option value="12">Class 12</option>
+                            </select>
+
+                        </div>
+                        <div class="caste-group" style="margin-bottom: 10px;">
+                            <label>Caste:</label>
+                            <label for="sc">
+                                <input type="radio" value="caste sc" name="caste" id="castesc" class="caste">SC
+                            </label>
+                            <label for="st">
+                                <input type="radio" value="caste st" name="caste" id="castest" class="caste">ST
+                            </label>
+                            <label for="gen">
+                                <input type="radio" value="caste gen" name="caste" id="castegen" class="caste">General
+                            </label>
+                            <label for="obc">
+                                <input type="radio" value="caste obc" name="caste" id="casteobc" class="caste">OBC
+                            </label>
+
+                        </div>
+                        <div class="row px-3">
+                            <div class="form-group">
+                                <label>Gender : </label>
+                                <label for="genderm">
+                                    <input type="radio" value="1" name="gender" id="genderm" class="gender">Male
+                                </label>
+                                <label for="genderf">
+                                    <input type="radio" value="0" name="gender" id="genderf" class="gender">Female
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row px-3">
+                            <div class="form-group" style="margin-right: 150px;">
+                                <label>Whether married or not : </label>
+                                <label for="marriedyes">
+                                    <input type="radio" value="married" name="whmarried" id="married" class="marry">Yes
+                                </label>
+                                <label for="marriedno">
+                                    <input type="radio" value="not_married" name="whmarried" id="notmarried" class="marry">No
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label> Whether involved in work : </label>
+                                <label for="workyes">
+                                    <input type="radio" value="workyes" name="work" id="workyes" class="work">Yes
+                                </label>
+                                <label for="workno">
+                                    <input type="radio" value="workno" name="work" id="workno" class="work">No
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>No.of siblings</label>
+                            <input name="siblings" id="siblings" type="text" placeholder="No.of siblings"
+                                class="form-control siblings">
+                        </div>
+                        <div class="row px-3">
+                            <div class="form-group">
+                                <label>Location : </label>
+                                <label for="arear">
+                                    <input type="radio" value="area r" name="area" id="arear" class="area">Rural
+                                </label>
+                                <label for="areau">
+                                    <input type="radio" value="area u" name="area" id="areau" class="area">Urban
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row px-3">
+                            <div class="form-group">
+                                <label>School type : </label>
+                                <label for="schoolp">
+                                    <input type="radio" value="1" name="school" id="schoolp" class="school" >Private
+                                </label>
+                                <label for="schoolg">
+                                    <input type="radio" value="0" name="school" id="schoolg" class="school">Government
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Latest Standard result</label>
+                            <input name="result" id="result" type="text" placeholder="Enter your marks"
+                                class="form-control result">
+                        </div>
+
+
+
+
+
+                        <div class="form-group">
+                            <label>Family Income</label>
+                            <input name="income" id="income" type="income" placeholder="income" class="form-control income">
+                        </div>
+                        <!--                        <form action="form.php">-->
+                        <!--                            Family occupation-->
+                        <!--                            <select name="occupation" id="occupation" style="margin-bottom: 20px;">-->
+                        <!--                                <option value="oc1">Labour</option>-->
+                        <!--                                <option value="oc2">Farmer</option>-->
+                        <!--                                <option value="oc3">Business</option>-->
+                        <!--                                <option value="oc4">Teacher</option>-->
+                        <!--                                <option value="oc5">Others</option>-->
+                        <!--                            </select>-->
+                        <!--                        </form>-->
+                        <button type="submit" id="printButton" class="btn btn-primary
+    btn-block" style="width: 100%; display: flex; text-align: center; justify-content: center; align-items: center; margin-top: 30px;">Submit</button>
+                    </form>
+                    <!--                    <p id="output" class="text-center" style="color: aliceblue;"></p>-->
+                    {% if label %}
+                    {% if label==1 %}
+                    <h3 id="suggest"> Based on these inputs , the student is most likely to take dropout in future</h3>
+                    <h1>Suggestions:</h1>
+                    <p>If you belong to the backward castes, here is some information for you:<br>
+                       Financially weak students Resources <a href="https://www.buddy4study.com/">Click Here</a>  <br>
+                        Meritorious student resources: <a href="https://www.education.gov.in/scholarships-education-loan-0">Click Here</a></p>
+                        Scholarships for female students: <a href="https://www.buddy4study.com/article/clinic-plus-scholarship">CLick Here</a>
+                    {% else %}
+                    <h1>Student is most likely to not drop out</h1>
+                    {% endif %}
+                    {% endif %}
+                </div>
+
+            </div>
+            <div id="dynamicContentContainer"></div>
+        </div>
+
+
+    </section>
+    <div class="container mt-5">
+        <h2 class="text-center" id="predict">
+
+        </h2>
+    </div>
+
+
+    <!-- contact ends here -->
+
+
+    <!-- ==============footer starts here============== -->
+    <section class="footer_section pt-5 pb-2 bg-dark" id="footer_section" style="color: azure;">
+        <footer>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-4 col-6 pl-5 pl-small-15">
+                        <div class="footer_title">
+<!--                            <a href="index.html">-->
+<!--                                                               <img src="logo5.jpg" alt="logo" width="200px" height="100px" style="border-radius: 5%;">-->
+<!--                            </a>-->
+                        </div>
+                        <div>
+                            Padhega India tabhi to badhega India
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-6">
+                        <div class="footer_title pt-20 mb-3">
+                            <h3>Quick links</h3>
+                        </div>
+                        <div class="footer_links">
+                            <ul>
+                                <li><a href="about.html">About</a></li>
+                                <li><a href="https://www.buddy4study.com/">Scholarships</a></li>
+                                <li><a href="javascript:;">News</a></li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-6">
+                        <div class="footer_title pt-20 mb-3">
+                            <h3>Support</h3>
+                        </div>
+                        <div class="footer_links">
+                            <ul>
+                                <li><a href="javascript:;">Frequently Asked Questions</a></li>
+                                <li><a href="javascript:;">Terms & Conditions</a></li>
+                                <li><a href="javascript:;">Privacy Policy</a></li>
+                                <li><a href="javascript:;">Report an issue</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top">
+                <h6 class="text-center mt-3">Copyright ©2023 All rights reserved
+                </h6>
+            </div>
+        </footer>
+    </section>
+    <div class="backtop">
+        <a id="button" href="#top" class="btn btn-lg btn-outline-danger" role="button">
+            <i class="fas fa-chevron-up text-dark"></i>
+        </a>
+    </div>
+    <!-- ==============footer ends here============== -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+    <!-- <script src="anurag.js"></script> -->
+    <!--        <script>-->
+    <!--            // Get a reference to the button and output element-->
+    <!--            var button = document.getElementById("printButton");-->
+    <!--            var output = document.getElementById("output");-->
+    <!--            var income = document.getElementById("income");-->
+
+    <!--            // Define the function to be executed when the button is clicked-->
+    <!--            function printOutput() {-->
+    <!--                // Generate some output text or data-->
+    <!--                var outputText;-->
+
+
+    <!--                    outputText = "Based on above inputs , Chance of dropout is YES !!! ";-->
+
+
+
+
+    <!--                // Update the content of the output element with the generated text-->
+    <!--                output.textContent = outputText;-->
+    <!--            }-->
+
+    <!--            // Add a click event listener to the button-->
+    <!--            button.addEventListener("click", printOutput);-->
+    <!--        </script>-->
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+    <script>
+        function generateCards(age, standard, selectedCaste, selectedGender, selectedArea, selectedSchool, result, income) {
+    const dynamicContentContainer = document.getElementById("dynamicContentContainer");
+    dynamicContentContainer.innerHTML = ""; // Clear previous content
+    console.log("Age:", age);
+    console.log("Standard:", standard);
+    console.log("Selected Caste:", selectedCaste);
+    console.log("Selected Gender:", selectedGender);
+    console.log("Selected Area:", selectedArea);
+    console.log("Selected School:", selectedSchool);
+    console.log("Result:", result);
+    console.log("Income:", income);
+
+    // Check conditions and add content accordingly
+    if((selectedCaste === "caste sc" )|| (selectedCaste === "caste st")){
+        // If caste is SC, add specific text and a link
+        const scText = document.createElement("p");
+        scText.textContent = "You belong to the SC or ST caste. Here is some information for you:";
+        dynamicContentContainer.appendChild(scText);
+
+        const scLink = document.createElement("a");
+        scLink.href = "https://www.wemakescholars.com/scholarships-for-indian-students-to-study-in-india"; // Replace with your URL
+        scLink.textContent = "SC  and ST Students' Resources"; // Replace with your link text
+        dynamicContentContainer.appendChild(scLink);
+    }
+    if(selectedGender === 1){
+        // If caste is SC, add specific text and a link
+        const scText = document.createElement("p");
+        scText.textContent = "You are a female. Here is some information for female students:";
+        dynamicContentContainer.appendChild(scText);
+
+        const scLink = document.createElement("a");
+        scLink.href = "https://www.buddy4study.com/scholarship/udaan-a-programme-to-give-wings-to-girl-students-2017"; // Replace with your URL
+        scLink.textContent = "Female scholarships"; // Replace with your link text
+        dynamicContentContainer.appendChild(scLink);
+    }
+    if(selectedArea === "Rural" || selectedSchool === 0)
+    {
+        // If caste is SC, add specific text and a link
+        const scText = document.createElement("p");
+        scText.textContent = "You belong to the SC caste. Here is some information for SC students:";
+        dynamicContentContainer.appendChild(scText);
+
+        const scLink = document.createElement("a");
+        scLink.href = "https://wbsaboojsathi.gov.in"; // Replace with your URL
+        scLink.textContent = "Underpriveleged Students' Resources"; // Replace with your link text
+        dynamicContentContainer.appendChild(scLink);
+    }
+    if(result>=80)    {
+        // If caste is SC, add specific text and a link
+        const scText = document.createElement("p");
+        scText.textContent = "You are excellent in studies";
+        dynamicContentContainer.appendChild(scText);
+
+        const scLink = document.createElement("a");
+        scLink.href = "https://www.education.gov.in/scholarships-education-loan-0"; // Replace with your URL
+        scLink.textContent = "Meritorius Students' Resources"; // Replace with your link text
+        dynamicContentContainer.appendChild(scLink);
+    }
+    if(income<=300000)    {
+        // If caste is SC, add specific text and a link
+        const scText = document.createElement("p");
+        scText.textContent = "You belong to the SC caste. Here is some information for SC students:";
+        dynamicContentContainer.appendChild(scText);
+
+        const scLink = document.createElement("a");
+        scLink.href = "https://www.education.gov.in/scholarships-education-loan-0"; // Replace with your URL
+        scLink.textContent = "Financially weak students Resources"; // Replace with your link text
+        dynamicContentContainer.appendChild(scLink);
+    }
+
+<!--    if (parseInt(income) < 300000) {-->
+<!--        // If income is below 340000, add specific text and a link-->
+<!--        const lowIncomeText = document.createElement("p");-->
+<!--        lowIncomeText.textContent = "Your family income is below 340000. Here are some financial aid resources:";-->
+<!--        dynamicContentContainer.appendChild(lowIncomeText);-->
+
+<!--        const lowIncomeLink = document.createElement("a");-->
+<!--        lowIncomeLink.href = "https://example.com/financial-aid"; // Replace with your URL-->
+<!--        lowIncomeLink.textContent = "Financial Aid Information"; // Replace with your link text-->
+<!--        dynamicContentContainer.appendChild(lowIncomeLink);-->
+<!--    }-->
+}
+document.getElementById("suggest").addEventListener("", function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const age = document.getElementById("age").value;
+    const standard = document.getElementById("Standard").value;
+    const casteInputs = document.querySelectorAll(".caste");
+    let selectedCaste = null;
+    for (const casteInput of casteInputs) {
+        if (casteInput.checked) {
+            selectedCaste = casteInput.value;
+            break;
+        }
+    }
+
+    const genderInputs = document.querySelectorAll(".gender");
+    let selectedGender = null;
+    for (const genderInput of genderInputs) {
+        if (genderInput.checked) {
+            selectedGender = genderInput.value;
+            break;
+        }
+    }
+
+    const areaInputs = document.querySelectorAll(".area");
+    let selectedArea = null;
+    for (const areaInput of areaInputs) {
+        if (areaInput.checked) {
+            selectedArea = areaInput.value;
+            break;
+        }
+    }
+
+    const schoolInputs = document.querySelectorAll(".school");
+    let selectedSchool = null;
+    for (const sch of schoolInputs) {
+        if (sch.checked) {
+            selectedSchool = sch.value;
+            break;
+        }
+    }
+
+    const result = document.getElementById("result").value;
+    const income = document.getElementById("income").value;
+
+    // Now you have the form values, and you can use them to generate cards or perform other actions
+    generateCards(age, standard, selectedCaste, selectedGender, selectedArea, selectedSchool, result, income);
+});
+
+
+
+
+// Call the generateCards function with your form values
+// For example:
+// generateCards("18", "12", "caste sc", "1", "area r", "1", "85", "250000");
+
+// function generateCards(age, standard, selectedCaste, selectedGender, selectedArea, selectedSchool, result, income) {
+    // Your logic to generate cards based on form values goes here
+    // You can access the form values as function parameters
+    // For example:
+    // console.log("Age:", age);
+    // console.log("Standard:", standard);
+    // console.log("Selected Caste:", selectedCaste);
+    // console.log("Selected Gender:", selectedGender);
+    // console.log("Selected Area:", selectedArea);
+    // console.log("Selected School:", selectedSchool);
+    // console.log("Result:", result);
+    // console.log("Income:", income);
+
+    // You can create and append cards to the cardContainer based on your conditions
+    // Example:
+    // const card = document.createElement("div");
+    // card.classList.add("card");
+    // card.textContent = "Card Content"; // Fill this out
+    // cardContainer.appendChild(card);
+// }
+
+    </script>
+</body>
+
+</html>

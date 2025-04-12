@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dropout Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="radio"],
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group input[type="radio"]:checked + label {
+            font-weight: bold;
+        }
+
+        .form-group .radio-label {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .result-container {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+        }
+
+        .result-container .button-link {
+            text-decoration: none;
+            color: white;
+            background-color: #28a745;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .result-container .button-link:hover {
+            background-color: #218838;
+        }
+
+        .form-group input[type="number"]:invalid {
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Student Dropout Prediction</h1>
+    <form action="/predict" method="POST">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="6" required>
+        <br><br>
+
+        <label for="income">Income:</label>
+        <input type="number" id="income" name="income" step="0.01" required>
+        <br><br>
+
+        <label for="marks">Marks:</label>
+        <input type="number" id="marks" name="marks" min="0" max="100" required>
+        <br><br>
+
+        <label for="siblings">Number of Siblings:</label>
+        <input type="number" id="siblings" name="siblings" required>
+        <br><br>
+
+        <label for="class_level">Class Level:</label>
+        <input type="number" id="class_level" name="class_level" required>
+        <br><br>
+
+        <label>School Type:</label>
+        <input type="radio" id="Govt" name="school_type" value="0" required>
+        <label for="Govt">Govt</label>
+        <input type="radio" id="private" name="school_type" value="1">
+        <label for="private">Private</label>
+        <br><br>
+
+        <label>location:</label>
+        <input type="radio" id="Urban" name="Location" value="0" required>
+        <label for="Urban">Urban</label>
+        <input type="radio" id="Rural" name="Rural" value="1">
+        <label for="Rural">Rural</label>
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="0" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="1">
+        <label for="female">Female</label>
+        <br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <!-- Display Prediction Result -->
+    {% if prediction_text %}
+            <h2 class="prediction-text">{{ prediction_text }}</h2>
+            {% if show_scholarship_button %}
+                <div class="scholarship-button">
+                    <a href="/scholarships"><button>View Scholarships</button></a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</body>
+</html>
