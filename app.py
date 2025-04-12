@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 import pickle
+import os
 import numpy as np
 
 app = Flask(__name__)
@@ -132,8 +133,10 @@ def scholar():
     """Render the scholarship links page."""
     return render_template('scholar.html')
 
+# Get port from environment or use 4000 by default
+port = int(os.environ.get("PORT", 4000))
 
 if __name__ == "__main__":
-    app.run(host='localhost', port=5003)
+    app.run(host='localhost', port=port)
 
     #app.run(debug=True)
