@@ -2,6 +2,12 @@ import pandas as pd
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, ConfusionMatrixDisplay
+
+
 import numpy as np
 # import matplotlib.pyplot as plt
 import pickle
@@ -49,6 +55,52 @@ nv
 nv.fit(x_train, y_train)
 #print(nv.predict(x_test))
 print(nv.score(x_test, y_test))
+
+lr = LogisticRegression(max_iter=1000)
+lr.fit(x_train, y_train)
+# Predict on test data
+y_pred = lr.predict(x_test)
+print("Logistic Regression Accuracy (model.score):", round(lr.score(x_test, y_test) * 100, 2), "%")
+
+#print("Logistic Regression Accuracy:", lr.score(x_test, y_test))
+
+accuracy = accuracy_score(y_test, y_pred)
+precision = precision_score(y_test, y_pred, zero_division=0)
+recall = recall_score(y_test, y_pred, zero_division=0)
+f1 = f1_score(y_test, y_pred, zero_division=0)
+
+# Print results
+print("Accuracy:", round(accuracy * 100, 2), "%")
+print("Precision:", round(precision * 100, 2), "%")
+print("Recall:", round(recall * 100, 2), "%")
+print("F1 Score:", round(f1 * 100, 2), "%")
+
+
+#pickle.dump(lr, open('logistic_model.pkl', 'wb'))
+
+rf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf.fit(x_train, y_train)
+print("Random Forest Accuracy:", rf.score(x_test, y_test))
+#pickle.dump(rf, open('random_forest_model.pkl', 'wb'))
+
+svm = SVC()
+svm.fit(x_train, y_train)
+print("SVM Accuracy:", svm.score(x_test, y_test))
+#pickle.dump(svm, open('svm_model.pkl', 'wb'))
+
+
+# from sklearn.model_selection import GridSearchCV
+#
+# params = {
+#     'C': [0.01, 0.1, 1, 10],
+#     'penalty': ['l1', 'l2'],
+#     'solver': ['liblinear']
+# }
+# grid = GridSearchCV(LogisticRegression(), params, cv=5)
+# grid.fit(x_train, y_train)
+# print("Best score:", grid.best_score_)
+
+
 
 pickle.dump(nv, open('model.pkl','wb'))
 model=pickle.load(open('model.pkl','rb'))
